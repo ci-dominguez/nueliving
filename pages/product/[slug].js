@@ -2,16 +2,40 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Layout from '@component/components/Layout';
 import Image from 'next/image';
-import React from 'react';
+import React, { useContext } from 'react';
 import data from '@component/utils/data';
+import { Store } from '../../utils/Store';
 
 export default function ProductScreen() {
+  const { state, dispatch } = useContext(Store);
   const { query } = useRouter();
   const { slug } = query;
   const product = data.products.find((x) => x.slug === slug);
   if (!product) {
     return <div>Product not found</div>;
   }
+
+  // Add a Handler to the quantity button in order to change quantity value here VVVV
+  const addToCartHandler = () => {
+    //searching if items already exists. In order to update quantities correctly
+    const existItem = state.cart.cartItems.find((x) => x.slug === product.slug);
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+
+    //checking if quantity in stock of item is >= quantity in cart
+    if (product.countInStock < quantity) {
+      alert(
+        'Sorry there are only ' +
+          product.countInStock +
+          ' ' +
+          product.name +
+          '(s) in stock!'
+      );
+      return;
+    }
+
+    dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
+  };
+
   return (
     <Layout title={product.name}>
       <div className="py-2">
@@ -43,7 +67,9 @@ export default function ProductScreen() {
           <div>
             <button type="button">Add Quantity Button</button>
             <div>
-              <button type="button">Add to Cart</button>
+              <button type="button" onClick={addToCartHandler}>
+                Add to Cart
+              </button>
               <a> Favorites Heart Icon</a>
             </div>
             <div>

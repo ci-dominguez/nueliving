@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { Store } from '@component/utils/Store';
 
 const Layout = ({ title, children }) => {
+  const { state, dispatch } = useContext(Store);
+  const { cart } = state;
+
   return (
     <>
       <Head>
@@ -34,7 +38,18 @@ const Layout = ({ title, children }) => {
                 nueLiving
               </Link>
             </div>
-            <div>***Search, Favorites w local storage, cart***</div>
+            <div className="flex flex-row">
+              <div>Search</div>
+              <Link href="/favorites">Favs</Link>
+              <Link href="/bag">
+                Bag
+                {cart.cartItems.length > 0 && (
+                  <span>
+                    {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                  </span>
+                )}
+              </Link>
+            </div>
           </nav>
         </header>
         <main className="container m-auto mt-4 px-4">{children}</main>
