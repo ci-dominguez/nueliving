@@ -41,8 +41,8 @@ const Layout = ({ title, children }) => {
             <div className="flex flex-row">
               <div>Search</div>
               <Link href="/favorites">Favs</Link>
-              <Link href="/bag">
-                Bag
+              <Link href="/cart">
+                Cart
                 {cart.cartItems.length > 0 && (
                   <span>
                     {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
