@@ -4,8 +4,9 @@ import Layout from '@component/components/Layout';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
 
-export default function CartScreen() {
+function CartScreen() {
   const { state, dispatch } = useContext(Store);
   const router = useRouter();
   const {
@@ -16,6 +17,10 @@ export default function CartScreen() {
     dispatch({ type: 'CART_REMOVE_ITEM', payload: item });
   };
 
+  const updateCartHandler = (item, q) => {
+    const quantity = Number(q);
+    dispatch({ type: 'CART_ADD_ITEM', payload: { ...item, quantity } });
+  };
   return (
     <Layout title="Cart">
       <h1>Shopping Cart</h1>
@@ -54,7 +59,20 @@ export default function CartScreen() {
                         {item.name}
                       </Link>
                     </td>
-                    <td className="p-5 text-right">{item.quantity}</td>
+                    <td className="p-5 text-right">
+                      <select
+                        value={item.quantity}
+                        onChange={(e) =>
+                          updateCartHandler(item, e.target.value)
+                        }
+                      >
+                        {[...Array(item.countInStock).keys()].map((x) => (
+                          <option key={x + 1} value={x + 1}>
+                            {x + 1}
+                          </option>
+                        ))}
+                      </select>
+                    </td>
                     <td className="p-5 text-right">${item.price}</td>
                     <td className="p-5 text-center">
                       <button onClick={() => removeItemHandler(item)}>
@@ -89,3 +107,6 @@ export default function CartScreen() {
     </Layout>
   );
 }
+
+//export CartScreen as a dynamic page client sided
+export default dynamic(() => Promise.resolve(CartScreen), { ssr: false });

@@ -1,12 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Store } from '@component/utils/Store';
 
 const Layout = ({ title, children }) => {
-  const { state, dispatch } = useContext(Store);
+  const { state } = useContext(Store);
   const { cart } = state;
 
+  //For Rendering Cart Quantity Badge
+  const [cartItemsCount, setCartItemsCount] = useState(0);
+  useEffect(() => {
+    setCartItemsCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0));
+  }, [cart.cartItems]);
   return (
     <>
       <Head>
@@ -43,11 +48,7 @@ const Layout = ({ title, children }) => {
               <Link href="/favorites">Favs</Link>
               <Link href="/cart">
                 Cart
-                {cart.cartItems.length > 0 && (
-                  <span>
-                    {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                  </span>
-                )}
+                {cartItemsCount > 0 && <span>{cartItemsCount}</span>}
               </Link>
             </div>
           </nav>
