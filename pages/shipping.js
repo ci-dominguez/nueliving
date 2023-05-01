@@ -20,18 +20,27 @@ export default function ShippingScreen() {
   const router = useRouter();
 
   useEffect(() => {
-    setValue('fullName', shippingAddress.fullName);
+    setValue('firstName', shippingAddress.firstName);
+    setValue('lastName', shippingAddress.lastName);
     setValue('address', shippingAddress.address);
     setValue('city', shippingAddress.city);
     setValue('postalCode', shippingAddress.postalCode);
     setValue('country', shippingAddress.country);
   }, [setValue, shippingAddress]);
 
-  const submitHandler = ({ fullName, address, city, postalCode, country }) => {
+  const submitHandler = ({
+    firstName,
+    lastName,
+    address,
+    city,
+    postalCode,
+    country,
+  }) => {
     dispatch({
       type: 'SAVE_SHIPPING_ADDRESS',
       payload: {
-        fullName,
+        firstName,
+        lastName,
         address,
         city,
         postalCode,
@@ -44,7 +53,8 @@ export default function ShippingScreen() {
       JSON.stringify({
         ...cart,
         shippingAddress: {
-          fullName,
+          firstName,
+          lastName,
           address,
           city,
           postalCode,
@@ -65,17 +75,31 @@ export default function ShippingScreen() {
       >
         <h1>Shipping Address</h1>
         <div>
-          <label htmlFor="fullName">Full Name</label>
+          <label htmlFor="firstName">Full Name</label>
           <input
             className="w-full border-2"
-            id="fullName"
+            id="firstName"
             autoFocus
-            {...register('fullName', {
-              required: 'Please enter full name',
+            {...register('firstName', {
+              required: 'Please enter first name',
             })}
           />
-          {errors.fullName && (
-            <div className="text-red-500">{errors.fullName.message}</div>
+          {errors.firstName && (
+            <div className="text-red-500">{errors.firstName.message}</div>
+          )}
+        </div>
+        <div>
+          <label htmlFor="lastName">Last Name</label>
+          <input
+            className="w-full border-2"
+            id="lastName"
+            autoFocus
+            {...register('lastName', {
+              required: 'Please enter last name',
+            })}
+          />
+          {errors.lastName && (
+            <div className="text-red-500">{errors.lastName.message}</div>
           )}
         </div>
         <div>
