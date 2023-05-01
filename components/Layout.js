@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Store } from '@component/utils/Store';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Layout = ({ title, children }) => {
   const { state } = useContext(Store);
@@ -19,6 +21,8 @@ const Layout = ({ title, children }) => {
         <meta name="description" content="Ecommerce Website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <ToastContainer position="bottom-center" limit={1} />
 
       <div className="flex min-h-screen flex-col justify-between">
         <header>
