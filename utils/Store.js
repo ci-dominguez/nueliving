@@ -35,7 +35,17 @@ function reducer(state, action) {
       Cookies.set('cart', JSON.stringify({ ...state.cart, cartItems }));
       return { ...state, cart: { ...state.cart, cartItems } };
     }
-    //Case 3 Saving the input-address and shipping information.
+    //3
+    case 'CART_RESET':
+      return {
+        ...state,
+        cart: {
+          cartItems: [],
+          shippingAddress: { location: {} },
+          paymentMethod: '',
+        },
+      };
+    //Case 4 Saving the input-address and shipping information.
     case 'SAVE_SHIPPING_ADDRESS':
       return {
         ...state,
@@ -47,7 +57,7 @@ function reducer(state, action) {
           },
         },
       };
-    //Case 4
+    //Case 5
     case 'SAVE_PAYMENT_METHOD':
       return {
         ...state,
@@ -55,6 +65,12 @@ function reducer(state, action) {
           ...state.cart,
           paymentMethod: action.payload,
         },
+      };
+    //Case 6
+    case 'CART_CLEAR_ITEMS':
+      return {
+        ...state,
+        cart: { ...state.cart, cartitems: [] },
       };
     default:
       return state;

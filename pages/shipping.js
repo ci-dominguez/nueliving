@@ -24,8 +24,10 @@ export default function ShippingScreen() {
     setValue('lastName', shippingAddress.lastName);
     setValue('address', shippingAddress.address);
     setValue('city', shippingAddress.city);
+    setValue('state', shippingAddress.state);
     setValue('postalCode', shippingAddress.postalCode);
     setValue('country', shippingAddress.country);
+    setValue('email', shippingAddress.email);
   }, [setValue, shippingAddress]);
 
   const submitHandler = ({
@@ -33,8 +35,10 @@ export default function ShippingScreen() {
     lastName,
     address,
     city,
+    state,
     postalCode,
     country,
+    email,
   }) => {
     dispatch({
       type: 'SAVE_SHIPPING_ADDRESS',
@@ -43,8 +47,10 @@ export default function ShippingScreen() {
         lastName,
         address,
         city,
+        state,
         postalCode,
         country,
+        email,
         location,
       },
     });
@@ -57,8 +63,10 @@ export default function ShippingScreen() {
           lastName,
           address,
           city,
+          state,
           postalCode,
           country,
+          email,
           location,
         },
       })
@@ -128,6 +136,19 @@ export default function ShippingScreen() {
           )}
         </div>
         <div>
+          <label htmlFor="state">State</label>
+          <input
+            className="w-full border-2"
+            id="state"
+            {...register('state', {
+              required: 'Please enter a state',
+            })}
+          />
+          {errors.state && (
+            <div className="text-red-500">{errors.state.message}</div>
+          )}
+        </div>
+        <div>
           <label htmlFor="postalCode">Postal Code</label>
           <input
             className="w-full border-2"
@@ -151,6 +172,19 @@ export default function ShippingScreen() {
           />
           {errors.country && (
             <div className="text-red-500">{errors.country.message}</div>
+          )}
+        </div>
+        <div>
+          <label htmlFor="email">Email</label>
+          <input
+            className="w-full border-2"
+            id="email"
+            {...register('email', {
+              required: 'Please enter a email',
+            })}
+          />
+          {errors.email && (
+            <div className="text-red-500">{errors.email.message}</div>
           )}
         </div>
         <div className="mt-4 flex justify-between">
