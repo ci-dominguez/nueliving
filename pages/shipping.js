@@ -71,7 +71,7 @@ export default function ShippingScreen() {
         },
       })
     );
-    router.push('/payment');
+    router.push('/placeorder');
   };
 
   return (

@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import '../public/webfonts/stylesheet.css';
 
 .card {
   @apply mb-5 block rounded-lg border border-gray-200 shadow-md;

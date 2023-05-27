@@ -43,70 +43,83 @@ export default function ProductScreen(props) {
 
   return (
     <Layout title={product.name}>
-      <div className="py-2">
-        <Link href="/">back to products **try to make this bredcrumbs?</Link>
-      </div>
-
-      <div className="grid md:grid-cols-4 md:gap-3">
-        <div className="md:col-span-2">
-          <Image
-            src={product.image}
-            alt={product.name}
-            height={720}
-            width={540}
-          ></Image>
+      <div className="px-6 sm:px-20 pb-20">
+        <div className="py-2 md:text-2xl">
+          <Link href="/">
+            {'<- '} {product.main} / {product.sub}
+          </Link>
         </div>
-        <div>
-          <ul>
-            <li>
-              <h1 className="text-lg">{product.name}</h1>
-            </li>
-            <li>
-              <h2>{product.color}</h2>
-            </li>
-            <li>
-              <h2>USD {product.price}</h2>
-            </li>
-          </ul>
-
-          <div>
-            <button type="button">Add Quantity Button</button>
+        <div className="grid md:gap-3">
+          <div className="lg:flex lg:flex-row lg:space-x-4">
             <div>
-              <button type="button" onClick={addToCartHandler}>
-                Add to Cart
-              </button>
-              <a> Favorites Heart Icon</a>
+              <Image
+                src={product.image}
+                alt={product.name}
+                width={640}
+                height={640}
+                sizes="100vw"
+                className=""
+              ></Image>
             </div>
-            <div>
-              <h2>{product.countInStock} left in stock</h2>
-              {product.rating} rating from {product.numReviews} customers
+            <div className="lg:w-1/2">
+              <ul>
+                <li>
+                  <h1 className="text-2xl font-moriregular pt-6 pb-2 sm:text-3xl md:text-4xl lg:pt-0">
+                    {product.name}
+                  </h1>
+                </li>
+                <li className="text-lg font-moriextralight pb-2 sm:text-xl md:text-2xl">
+                  <b>Description:</b> {product.description}
+                </li>
+              </ul>
+              <div className="hidden xl:flex 2xl:pt-10">
+                <div className="card p-5 md:text-3xl">
+                  <div className="mb-2 flex justify-between md:mb-10">
+                    <div>Price</div>
+                    <div>${product.price}</div>
+                  </div>
+                  <div className="mb-2 md:mb-10 flex justify-between">
+                    <div>Status</div>
+                    <div>
+                      {product.countInStock > 0 ? 'In stock' : 'Unavailable'}
+                    </div>
+                  </div>
+                  <button
+                    className="primary-button w-full mb-4 md:mb-10"
+                    onClick={addToCartHandler}
+                  >
+                    Add to cart
+                  </button>
+                  <span className="text-lg font-moriextralight md:text-3xl">
+                    {product.rating} Star Rating from 283 customers!
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
-
-          <ul>
-            <li>
-              <h2 className="font-bold">Description &amp; Details</h2>
-            </li>
-            <li>
-              <p>{product.description}</p>
-            </li>
-            <li>
-              <span className="font-bold">Item no. </span>
-              {product.itemno}
-            </li>
-            <li>
-              <span className="font-bold">Dimensions: </span>
-              {product.dimensions}
-            </li>
-            <li>
-              <span className="font-bold">Material: </span>
-              {product.material}
-            </li>
-            <li>
-              <span className="font-bold">Care Instructions: </span>
-              {product.care}
-            </li>
-          </ul>
+          <div className="xl:hidden">
+            <div className="card p-5 md:text-3xl">
+              <div className="mb-2 flex justify-between md:mb-10">
+                <div>Price</div>
+                <div>${product.price}</div>
+              </div>
+              <div className="mb-2 md:mb-10 flex justify-between">
+                <div>Status</div>
+                <div>
+                  {product.countInStock > 0 ? 'In stock' : 'Unavailable'}
+                </div>
+              </div>
+              <button
+                className="primary-button w-full mb-4 md:mb-10"
+                onClick={addToCartHandler}
+              >
+                Add to cart
+              </button>
+              <span className="text-lg font-moriextralight md:text-3xl">
+                {product.rating} Star Rating from 283 customers!
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </Layout>

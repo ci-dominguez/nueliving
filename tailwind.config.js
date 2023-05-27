@@ -12,7 +12,30 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors: {
+        accent: '#d4cdc3',
+        main: '#edede9',
+        black: '#191919',
+        imgbg: '#e6e6e6',
+        imgbgalt: '#dedede',
+      },
+      fontFamily: {
+        ade: ['adedisplay'],
+        moriextralight: ['pp_moriextralight'],
+        moriregular: ['pp_moriregular'],
+        morisemibold: ['pp_morisemibold'],
+      },
+      screens: {
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+        '2xl': '1536px',
+        '3xl': '1720px',
+        '4xl': '1920px',
+        '5xl': '2560px',
+      },
     },
   },
   plugins: [],
-}
+};

@@ -30,22 +30,30 @@ function CartScreen() {
   };
   return (
     <Layout title="Cart">
-      <h1>Shopping Cart</h1>
+      <h1 className="text-2xl font-ade pb-2 text-center sm:text-4xl xl:mt-20 xl:pb-10">
+        YOUR BAG
+      </h1>
 
       {cartItems.length === 0 ? (
-        <div>
+        <div className="px-20">
           Your cart is empty! <Link href="/catalog">Find your products.</Link>
         </div>
       ) : (
-        <div className="grid md:grid-cols-4 md:gap-5">
+        <div className="grid md:gap-5 sm:px-20">
           <div className="overflow-x-auto md:col-span-3">
-            <table className="min-w-full">
+            <table className="min-w-full ">
               <thead className="border-b">
                 <tr>
-                  <th className="px-5 text-left">Item</th>
-                  <th className="p-5 text-right">Quantity</th>
-                  <th className="p-5 text-right">Price</th>
-                  <th className="p-5">Action</th>
+                  <th className="px-5 text-left xl:text-2xl font-morisemibold">
+                    Item
+                  </th>
+                  <th className="p-5 text-right xl:text-2xl font-morisemibold">
+                    Quantity
+                  </th>
+                  <th className="p-5 text-right xl:text-2xl font-morisemibold">
+                    Price
+                  </th>
+                  <th className="p-5 xl:text-2xl font-morisemibold">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -61,13 +69,17 @@ function CartScreen() {
                           alt={item.name}
                           width={50}
                           height={50}
+                          className="xl:w-[100px]"
                         />
                         &nbsp;
-                        {item.name}
+                        <span className="font-moriregular xl:text-2xl">
+                          {item.name}
+                        </span>
                       </Link>
                     </td>
-                    <td className="p-5 text-right">
+                    <td className="p-10 text-right xl:text-2xl">
                       <select
+                        className="bg-main"
                         value={item.quantity}
                         onChange={(e) =>
                           updateCartHandler(item, e.target.value)
@@ -80,8 +92,10 @@ function CartScreen() {
                         ))}
                       </select>
                     </td>
-                    <td className="p-5 text-right">${item.price}</td>
-                    <td className="p-5 text-center">
+                    <td className="p-5 text-right xl:text-2xl">
+                      ${item.price}
+                    </td>
+                    <td className="p-5 text-center xl:text-2xl text-red-500">
                       <button onClick={() => removeItemHandler(item)}>
                         Remove
                       </button>
@@ -91,7 +105,7 @@ function CartScreen() {
               </tbody>
             </table>
           </div>
-          <div className="card p-5">
+          <div className="card p-5 xl:text-2xl xl:mt-10">
             <ul>
               <li>
                 <div className="pb-3">
