@@ -8,6 +8,17 @@ import { useContext } from 'react';
 import { toast } from 'react-toastify';
 import Image from 'next/image';
 import Link from 'next/link';
+import ripple from '/../public/images/ripple.webp';
+import textilelg from '/../public/images/cattextileslg.webp';
+import lightlg from '/../public/images/catlightinglg.webp';
+import furnlg from '/../public/images/catfurniturelg.webp';
+import outlg from '/../public/images/catoutdoorslg.jpg';
+import declg from '/../public/images/catdecorlg.webp';
+import text from '/../public/images/cattextiles.webp';
+import light from '/../public/images/catlighting.webp';
+import furn from '/../public/images/catfurniture.webp';
+import out from '/../public/images/catoutdoors.jpg';
+import dec from '/../public/images/catdecor.webp';
 
 export default function Home({ products }) {
   const { state, dispatch } = useContext(Store);
@@ -36,7 +47,7 @@ export default function Home({ products }) {
         <div className="relative text-center px-6 sm:px-20 lg:pr-5">
           <Link href="/catalog">
             <Image
-              src="/../public/images/ripple.webp"
+              src={ripple}
               alt="Newest Collections"
               width="2000"
               height="2000"
@@ -150,7 +161,7 @@ export default function Home({ products }) {
               <Link href="/catalog">
                 <div className="relative text-center">
                   <Image
-                    src="/../public/images/cattextileslg.webp"
+                    src={textilelg}
                     alt="Newest Collections"
                     width="1000"
                     height="1000"
@@ -164,7 +175,7 @@ export default function Home({ products }) {
               <Link href="/catalog">
                 <div className="relative text-center">
                   <Image
-                    src="/../public/images/catlightinglg.webp"
+                    src={lightlg}
                     alt="Newest Collections"
                     width="1000"
                     height="1000"
@@ -178,7 +189,7 @@ export default function Home({ products }) {
               <Link href="/catalog">
                 <div className="relative text-center">
                   <Image
-                    src="/../public/images/catfurniturelg.webp"
+                    src={furnlg}
                     alt="Newest Collections"
                     width="1000"
                     height="1000"
@@ -192,7 +203,7 @@ export default function Home({ products }) {
               <Link href="/catalog">
                 <div className="relative text-center">
                   <Image
-                    src="/../public/images/catoutdoorslg.jpg"
+                    src={outlg}
                     alt="Newest Collections"
                     width="1000"
                     height="1000"
@@ -206,7 +217,7 @@ export default function Home({ products }) {
               <Link href="/catalog">
                 <div className="relative text-center">
                   <Image
-                    src="/../public/images/catdecorlg.webp"
+                    src={declg}
                     alt="Newest Collections"
                     width="1000"
                     height="1000"
@@ -222,7 +233,7 @@ export default function Home({ products }) {
               <Link href="/catalog">
                 <div className="relative text-center mb-4">
                   <Image
-                    src="/../public/images/cattextiles.webp"
+                    src={text}
                     alt="Newest Collections"
                     width="1000"
                     height="1000"
@@ -236,7 +247,7 @@ export default function Home({ products }) {
               <Link href="/catalog">
                 <div className="relative text-center mb-4">
                   <Image
-                    src="/../public/images/catlighting.webp"
+                    src={light}
                     alt="Newest Collections"
                     width="1000"
                     height="1000"
@@ -250,7 +261,7 @@ export default function Home({ products }) {
               <Link href="/catalog">
                 <div className="relative text-center mb-4">
                   <Image
-                    src="/../public/images/catfurniture.webp"
+                    src={furn}
                     alt="Newest Collections"
                     width="1000"
                     height="1000"
@@ -264,7 +275,7 @@ export default function Home({ products }) {
               <Link href="/catalog">
                 <div className="relative text-center mb-4">
                   <Image
-                    src="/../public/images/catoutdoors.jpg"
+                    src={out}
                     alt="Newest Collections"
                     width="1000"
                     height="1000"
@@ -278,7 +289,7 @@ export default function Home({ products }) {
               <Link href="/catalog">
                 <div className="relative text-center">
                   <Image
-                    src="/../public/images/catdecor.webp"
+                    src={dec}
                     alt="Newest Collections"
                     width="1000"
                     height="1000"
