@@ -28,9 +28,9 @@ export default function inspiration() {
           furniture, accessories and lighting, so you can create space to feel
           comfortably you.
         </p>
-        <a href="/catalog" className="font-morisemibold sm:text-2xl underline">
+        <Link href="/catalog" className="font-morisemibold sm:text-2xl underline">
           Welcome home.
-        </a>
+        </Link>
       </div>
     </Layout>
   );

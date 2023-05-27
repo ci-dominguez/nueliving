@@ -98,12 +98,12 @@ export default function Home({ products }) {
               />
             </div>
             <div className="mt-4 md:mt-10 lg:text-left">
-              <a
+              <Link
                 href="/catalog"
                 className="font-moriextralight text-2xl sm:text-3xl underline 3xl:text-4xl"
               >
                 Shop our soon-to-be out of stock items.
-              </a>
+              </Link>
             </div>
           </div>
           <div className="py-10">
@@ -134,12 +134,12 @@ export default function Home({ products }) {
               />
             </div>
             <div className="mt-4 md:mt-10 lg:text-left">
-              <a
+              <Link
                 href="/catalog"
                 className="font-moriextralight text-2xl sm:text-3xl pb-2 underline 3xl:text-4xl"
               >
                 See our full selection of outdoor and sustainable products.
-              </a>
+              </Link>
             </div>
           </div>
           <div className="py-10 flex flex-col">
