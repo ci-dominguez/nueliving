@@ -8,17 +8,17 @@ import { useContext } from 'react';
 import { toast } from 'react-toastify';
 import Image from 'next/image';
 import Link from 'next/link';
-import ripple from '/../public/images/ripple.webp';
-import textilelg from '/../public/images/cattextileslg.webp';
-import lightlg from '/../public/images/catlightinglg.webp';
-import furnlg from '/../public/images/catfurniturelg.webp';
-import outlg from '/../public/images/catoutdoorslg.jpg';
-import declg from '/../public/images/catdecorlg.webp';
-import text from '/../public/images/cattextiles.webp';
-import light from '/../public/images/catlighting.webp';
-import furn from '/../public/images/catfurniture.webp';
-import out from '/../public/images/catoutdoors.jpg';
-import dec from '/../public/images/catdecor.webp';
+import ripple from '../public/images/ripple.webp';
+import textilelg from '../public/images/cattextileslg.webp';
+import lightlg from '../public/images/catlightinglg.webp';
+import furnlg from '../public/images/catfurniturelg.webp';
+import outlg from '../public/images/catoutdoorslg.jpg';
+import declg from '../public/images/catdecorlg.webp';
+import text from '../public/images/cattextiles.webp';
+import light from '../public/images/catlighting.webp';
+import furn from '../public/images/catfurniture.webp';
+import out from '../public/images/catoutdoors.jpg';
+import dec from '../public/images/catdecor.webp';
 
 export default function Home({ products }) {
   const { state, dispatch } = useContext(Store);
